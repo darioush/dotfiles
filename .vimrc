@@ -10,6 +10,7 @@ set ls=2
 set ignorecase
 set smartcase
 set incsearch
+set ruler
 
 set nobackup
 set nowritebackup
