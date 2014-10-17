@@ -7,3 +7,6 @@
 [submodule ".vim/bundle/vimbufsync"]
 	path = .vim/bundle/vimbufsync
 	url = https://github.com/def-lkb/vimbufsync
+[submodule ".vim/bundle/YankRing.vim"]
+	path = .vim/bundle/YankRing.vim
+	url = https://github.com/vim-scripts/YankRing.vim
