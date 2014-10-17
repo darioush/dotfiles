@@ -11,6 +11,7 @@ set ignorecase
 set smartcase
 set incsearch
 set ruler
+set scrolloff=4
 
 set nobackup
 set nowritebackup
@@ -57,7 +58,7 @@ call arpeggio#map('n', '', 0, 'NM', 'Oif __name__ == "__main__":<CR><Tab>')
 
 filetype plugin indent on
 au FileType coq call coquille#FNMapping()
-au FileType coq let g:coquille_auto_move='true'
+au FileType coq let g:coquille_auto_move='false'
 
 autocmd FileType make setlocal noexpandtab
 
