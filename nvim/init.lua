@@ -201,6 +201,8 @@ vim.keymap.set('t', 'jk', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 vim.keymap.set('t', 'kj', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Exit insert mode' })
 vim.keymap.set('i', 'kj', '<Esc>', { desc = 'Exit insert mode' })
+vim.keymap.set('n', 'fj', function() require('telescope.builtin').live_grep() end, { desc = 'Fuzzy grep' })
+vim.keymap.set('n', 'jf', function() require('telescope.builtin').live_grep() end, { desc = 'Fuzzy grep' })
 
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
@@ -214,10 +216,11 @@ vim.keymap.set('i', 'kj', '<Esc>', { desc = 'Exit insert mode' })
 --  See `:help wincmd` for a list of all window commands
 vim.keymap.set('n', '<C-p>', function() require('telescope.builtin').find_files() end, { desc = 'Find files (Cmd-P)' })
 
-vim.keymap.set('n', '<C-_>', '<C-o>', { desc = 'Jump back' })
+vim.keymap.set('n', '<C-->', '<C-o>', { desc = 'Jump back' })
 vim.keymap.set('n', '<leader>tv', ':ToggleTerm direction=vertical<CR>', { desc = '[T]erminal [V]ertical', silent = true })
 vim.keymap.set('n', '<leader>tb', ':ToggleTerm direction=horizontal<CR>', { desc = '[T]erminal [B]ottom', silent = true })
 vim.keymap.set('n', '<leader>tf', ':ToggleTerm direction=float<CR>', { desc = '[T]erminal [F]loat', silent = true })
+vim.keymap.set('n', '<leader>r', '<cmd>e!<cr>', { desc = 'Reload file' })
 vim.keymap.set('n', '<leader>x', ':bd<CR>', { desc = 'Close buffer tab', silent = true })
 vim.keymap.set('n', '<Tab>', ':BufferLineCycleNext<CR>', { desc = 'Next buffer tab', silent = true })
 vim.keymap.set('n', '<S-Tab>', ':BufferLineCyclePrev<CR>', { desc = 'Previous buffer tab', silent = true })
@@ -403,12 +406,9 @@ require('lazy').setup({
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
-        -- defaults = {
-        --   mappings = {
-        --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-        --   },
-        -- },
-        -- pickers = {}
+        defaults = {
+          path_display = { 'truncate' },
+        },
         extensions = {
           ['ui-select'] = { require('telescope.themes').get_dropdown() },
         },
@@ -987,7 +987,7 @@ require('lazy').setup({
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
